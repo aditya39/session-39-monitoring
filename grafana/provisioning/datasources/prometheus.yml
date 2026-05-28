@@ -1,0 +1,13 @@
+# Auto-adds Prometheus as a Grafana data source on first boot.
+# Students don't need to click anything — just open Grafana and start
+# building panels.
+
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+    editable: true
