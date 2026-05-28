@@ -1,0 +1,15 @@
+# Prometheus scrape config for Session 39.
+#
+# Tells Prometheus: every 15 seconds, visit the host machine on port 8000
+# and download whatever metrics live at /metrics. That's the endpoint the
+# notebook starts with prometheus_client.start_http_server(8000).
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: llm-app
+    static_configs:
+      - targets:
+          - host.docker.internal:8000
